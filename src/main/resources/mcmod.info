@@ -1,0 +1,16 @@
+[
+{
+  "modid": "namedheads",
+  "name": "Named Heads",
+  "description": "Shows names above heads when they're aimed at",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["14mRh4X0r"],
+  "credits": "SnappyMuppetman for the idea",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
