@@ -7,18 +7,24 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
 
 apply plugin: 'forge'
 
-version = "0.1.1"
+version = "0.1.2"
 group= "_14mrh4x0r" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "namedheads"
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 minecraft {
-  version = "1.6.4-9.11.1.964"
+  version = "1.7.10-10.13.4.1558-1.7.10"
+
+  replaceIn "_14mRh4X0r/namedheads/NamedHeads.java"
+  replace '@@VERSION@@', project.version
 }
 
 processResources {
