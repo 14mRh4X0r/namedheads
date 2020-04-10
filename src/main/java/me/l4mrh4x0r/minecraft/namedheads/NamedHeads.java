@@ -18,6 +18,7 @@ package me.l4mrh4x0r.minecraft.namedheads;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.init.Blocks;
@@ -77,5 +78,8 @@ public class NamedHeads {
                 isThirdPersonFrontal,
                 false
         );
+
+        // drawNameplate enables lighting, but it was disabled at this point in rendering
+        GlStateManager.disableLighting();
     }
 }
