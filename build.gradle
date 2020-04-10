@@ -1,27 +1,26 @@
 buildscript {
     repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
+        jcenter()
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-apply plugin: 'forge'
-
-version = "0.1.2"
+version = "0.2.0+1.12.2"
 group= "me.l4mrh4x0r.minecraft"
 archivesBaseName = "namedheads"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 minecraft {
-  version = "1.7.10-10.13.4.1558-1.7.10"
+  version = "1.12.2-14.23.5.2847"
+  mappings = "stable_39"
+
+  runDir = "run"
 
   replaceIn "me/l4mrh4x0r/minecraft/namedheads/NamedHeads.java"
   replace '@@VERSION@@', project.version
