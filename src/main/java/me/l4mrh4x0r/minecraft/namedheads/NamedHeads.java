@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package _14mrh4x0r.namedheads;
+package me.l4mrh4x0r.minecraft.namedheads;
 
 import org.lwjgl.opengl.GL11;
 
