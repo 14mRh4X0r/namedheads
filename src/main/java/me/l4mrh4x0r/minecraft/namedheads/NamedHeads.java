@@ -23,6 +23,7 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.AxisAlignedBB;
@@ -60,9 +61,9 @@ public class NamedHeads {
             if (skull.func_145904_a() == 3) {
                 AxisAlignedBB aabb = skull.getRenderBoundingBox();
                 drawLabel(skull.func_152108_a().getName(),
-                        (aabb.maxX + aabb.minX) / 2 - event.player.posX,
-                        (aabb.maxY + aabb.minY) / 2 - event.player.posY,
-                        (aabb.maxZ + aabb.minZ) / 2 - event.player.posZ);
+                        (aabb.maxX + aabb.minX) / 2 - TileEntityRendererDispatcher.staticPlayerX,
+                        aabb.maxY + 0.5 - TileEntityRendererDispatcher.staticPlayerY,
+                        (aabb.maxZ + aabb.minZ) / 2 - TileEntityRendererDispatcher.staticPlayerZ);
             }
         }
     }
@@ -72,7 +73,7 @@ public class NamedHeads {
         float f = 1.6F;
         float f1 = 0.016666668F * f;
         GL11.glPushMatrix();
-        GL11.glTranslatef((float) offsetX, (float) offsetY + 1.0F, (float) offsetZ);
+        GL11.glTranslatef((float) offsetX, (float) offsetY, (float) offsetZ);
         GL11.glNormal3f(0.0F, 1.0F, 0.0F);
         GL11.glRotatef(-RenderManager.instance.playerViewY, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(RenderManager.instance.playerViewX, 1.0F, 0.0F, 0.0F);
@@ -101,6 +102,7 @@ public class NamedHeads {
         GL11.glDisable(GL11.GL_BLEND);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GL11.glPopMatrix();
+        GL11.glDisable(GL11.GL_LIGHTING);
     }
 
     private <T> Object tryGetField(T object, Class<T> klass, String... tryNames) {
